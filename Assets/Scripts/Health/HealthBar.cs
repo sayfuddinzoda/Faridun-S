@@ -8,10 +8,16 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Gradient _gradient;
     [SerializeField] private Health _health;
 
-    private void Awake()
+    private void OnEnable()
     {
         _health.OnHealthChanged += ChangeBar;
         _health.OnDie += Die;
+    }
+
+    private void OnDisable()
+    {
+        _health.OnHealthChanged -= ChangeBar;
+        _health.OnDie -= Die;
     }
 
     private void ChangeBar(float healthPercent) 

@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class Enemy : MonoBehaviour
 {
+
     [SerializeField] private Animator _animator;
     [SerializeField] private Health _health;
     [SerializeField] private CapsuleCollider _collider;
@@ -23,6 +24,5 @@ public class Enemy : MonoBehaviour
         _animator.enabled = false;
         Destroy(gameObject, _destroyTime);
     }
-
 
 }

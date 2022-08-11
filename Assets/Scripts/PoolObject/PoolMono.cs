@@ -69,5 +69,4 @@ public class PoolMono<T> where T : MonoBehaviour
         throw new System.Exception($"No free elements in pool of type {typeof(T)}");
     }
 
-
 }

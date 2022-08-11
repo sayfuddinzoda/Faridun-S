@@ -77,8 +77,6 @@ public class PlayerMovement : MonoBehaviour
         OnMovementStateChanged?.Invoke(state);
     }
 
-
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.TryGetComponent(out Point point)) 
@@ -89,4 +87,5 @@ public class PlayerMovement : MonoBehaviour
                 MoveNextPoint();
         }
     }
+
 }

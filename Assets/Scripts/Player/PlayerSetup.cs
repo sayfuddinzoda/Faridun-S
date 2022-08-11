@@ -4,6 +4,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(PlayerMovement))]
 public class PlayerSetup : MonoBehaviour
 {
+
     [SerializeField] private Gun _gun;
     [SerializeField] private PlayerMovement _movement;
 

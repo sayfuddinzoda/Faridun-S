@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class BootstarpScene : MonoBehaviour
 {
+
     [SerializeField] private Transform _startPoint;
     [SerializeField] private PlayerSetup _player;
     [SerializeField] private PointsNavigator _navigator;

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Gun : MonoBehaviour
 {
+
     [SerializeField] private float _cooldown = 0.25f;
     [SerializeField] private bool _canShoot = true;
     [SerializeField] private Transform _bulletSpawnPosition;
@@ -28,4 +29,5 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(_cooldown);
         _canShoot = true;
     }
+
 }

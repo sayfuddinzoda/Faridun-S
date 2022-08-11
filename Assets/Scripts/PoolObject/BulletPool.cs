@@ -1,13 +1,14 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class BulletPool : MonoBehaviour
 {
+
+    public PoolMono<Bullet> _pool;
+
     [SerializeField] private int _count;
     [SerializeField] private bool _autoExpand = false;
     [SerializeField] private Bullet _bullet;
 
-    public PoolMono<Bullet> _pool;
 
     private void Awake()
     {

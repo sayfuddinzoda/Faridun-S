@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMovement))]
 public class PlayerAnimator : MonoBehaviour
 {
+
     private Animator _animator;
     [SerializeField] private PlayerMovement _playerMovement;
 
@@ -11,7 +12,16 @@ public class PlayerAnimator : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _playerMovement = GetComponent<PlayerMovement>();
+    }
+
+    private void OnEnable()
+    {
         _playerMovement.OnMovementStateChanged += UpdateAnimation;
+    }
+
+    private void OnDisable()
+    {
+        _playerMovement.OnMovementStateChanged -= UpdateAnimation;
     }
 
     private void UpdateAnimation(MovementState state) 
@@ -27,4 +37,5 @@ public class PlayerAnimator : MonoBehaviour
         }
 
     }
+
 }

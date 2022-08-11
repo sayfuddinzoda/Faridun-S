@@ -6,6 +6,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private Bullet _bullet;
     [SerializeField] private Gun _gun;
     [SerializeField] private LayerMask _ignoreLayerMask;
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -20,4 +21,5 @@ public class PlayerCombat : MonoBehaviour
         }
         
     }
+
 }
