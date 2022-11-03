@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
 
+    [SerializeField] private PlayerMovement _player;
     [SerializeField] private Bullet _bullet;
     [SerializeField] private Gun _gun;
     [SerializeField] private LayerMask _ignoreLayerMask;
@@ -17,6 +18,9 @@ public class PlayerCombat : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            if (_player.MovementState == MovementState.move)
+                return;
+
             RaycastHit hit;
             var ray = _camera.ScreenPointToRay(Input.mousePosition);
 

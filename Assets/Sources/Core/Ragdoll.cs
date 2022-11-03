@@ -6,7 +6,8 @@ public class Ragdoll : MonoBehaviour
 {
 
     [SerializeField] private List<Rigidbody> _parts;
-
+    [SerializeField] [Range(0,10)] private float _shoveRandomForceMin;
+    [SerializeField] [Range(0,10)] private float _shoveRandomForceMax;
     private Health _health;
 
     private void Awake()
@@ -40,9 +41,23 @@ public class Ragdoll : MonoBehaviour
     {
         _parts.ForEach((part) =>
         {
-            Vector3 randomDirection = new Vector3(Random.Range(0.1f, 3f), Random.Range(0.1f, 3f), Random.Range(0.1f, 3f));
+            Vector3 randomDirection = GetRandomForceDirection();
             part.AddForce(randomDirection, ForceMode.Impulse);
         });
+    }
+
+    private Vector3 GetRandomForceDirection() 
+    {
+
+     return new Vector3(
+                GetRandomForce(),
+                GetRandomForce(),
+                GetRandomForce());
+    }
+
+    private float GetRandomForce() 
+    {
+        return Random.Range(-_shoveRandomForceMin, _shoveRandomForceMax);
     }
 
 }

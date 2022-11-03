@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private PointsNavigator _navigator;
     [SerializeField] private MovementState _movementState;
+    public MovementState MovementState => _movementState;
+
     [SerializeField] private Point _currentPoint;
     [SerializeField] private Button _buttonStart;
     [SerializeField, Min(0)] private float _speed = 3.5f;
