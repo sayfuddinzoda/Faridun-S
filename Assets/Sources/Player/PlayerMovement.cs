@@ -1,14 +1,14 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(PlayerCombat))]
 public class PlayerMovement : MonoBehaviour
 {
 
-    public Action<MovementState> OnMovementStateChanged;
+    public UnityAction<MovementState> OnMovementStateChanged;
 
     [SerializeField] private PointsNavigator _navigator;
     [SerializeField] private MovementState _movementState;

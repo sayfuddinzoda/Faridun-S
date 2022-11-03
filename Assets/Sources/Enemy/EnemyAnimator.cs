@@ -8,6 +8,7 @@ public class EnemyAnimator : MonoBehaviour
 
     [SerializeField, Range(1,3)] private float _randomSpeedMin;
     [SerializeField, Range(1,3)] private float _randomSpeedMax;
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BootstarpScene : MonoBehaviour
+public class BootstarpLevel : MonoBehaviour
 {
 
     [SerializeField] private Transform _startPoint;

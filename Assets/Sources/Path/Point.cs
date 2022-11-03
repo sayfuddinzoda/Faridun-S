@@ -1,10 +1,10 @@
-using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Point : MonoBehaviour
 {
 
-    public event Action OnComplite;
+    public event UnityAction OnComplite;
 
     [SerializeField] private Spawner[] _spawners;
     [SerializeField] private int _activeSpawnersCount;

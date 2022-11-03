@@ -1,11 +1,11 @@
-using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour, ITakeDamage
 {
 
-    public Action<float> OnHealthChanged;
-    public Action OnDie;
+    public event UnityAction<float> OnHealthChanged;
+    public event UnityAction OnDie;
 
     [SerializeField] private float _currentHealth;
     [SerializeField, Min(0)] private float _maxHealth;
