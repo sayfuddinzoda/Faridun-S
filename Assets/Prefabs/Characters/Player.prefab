@@ -181,7 +181,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.165725, y: 1}
+    m_SensorSize: {x: 2.141527, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -702,7 +702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6e8e332356c344c8b8585948f93238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gun: {fileID: 5242430408247921963}
+  <Gun>k__BackingField: {fileID: 5242430408247921963}
 --- !u!114 &3695150339301744417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,6 +727,8 @@ MonoBehaviour:
   - {fileID: 1212453360079234040}
   - {fileID: 1212453359639641527}
   - {fileID: 1212453360836060751}
+  _shoveRandomForceMin: 0
+  _shoveRandomForceMax: 0
 --- !u!114 &3020785276137418095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -757,7 +759,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1c5715b9333a1244b76e422e5d89dd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerMovement: {fileID: 0}
 --- !u!114 &7789487387909104561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,9 +771,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 703a7a2c3e7d36a44a974005fdd88543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 100
-  _maxHealth: 100
-  _animator: {fileID: 0}
+  <CurrentHealth>k__BackingField: 100
+  <MaxHealth>k__BackingField: 100
 --- !u!136 &8108606385118695124
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3325,7 +3325,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4a4c77a547d8942a074a7ec757dc41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cooldown: 0.5
-  _canShoot: 1
-  _bulletSpawnPosition: {fileID: 5511415116959994608}
-  _bulletPool: {fileID: 0}
+  <Cooldown>k__BackingField: 0.25

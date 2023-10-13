@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
-public class Ragdoll : MonoBehaviour
+public sealed class Ragdoll : MonoBehaviour
 {
 
     [SerializeField] private List<Rigidbody> _parts;
@@ -26,13 +26,13 @@ public class Ragdoll : MonoBehaviour
         _health.OnDie -= Enable;
     }
 
-    public void Enable()
+    private void Enable()
     {
         _parts.ForEach((part) => { part.isKinematic = false; });
         ShoveBody();
     }
 
-    public void Disable()
+    private void Disable()
     {
         _parts.ForEach((part) => { part.isKinematic = true; });
     }

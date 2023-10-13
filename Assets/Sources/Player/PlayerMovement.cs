@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private PointsNavigator _navigator;
     [SerializeField] private MovementState _movementState;
-    public MovementState MovementState => _movementState;
 
     [SerializeField] private Point _currentPoint;
     [SerializeField] private Button _buttonStart;
@@ -21,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private NavMeshAgent _agent;
     private PlayerCombat _combat;
     private Level _level;
+    
+    public MovementState MovementState => _movementState;
 
     private void Awake()
     {
@@ -30,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         _combat.enabled = false;
     }
 
-    public void Consturctor(PointsNavigator navigator, Level level) 
+    public void Constructor(PointsNavigator navigator, Level level) 
     {
         _navigator = navigator;
         _level = level;
@@ -45,25 +46,25 @@ public class PlayerMovement : MonoBehaviour
 
         _currentPoint = _navigator.FirstPoint;
         UpdateAgentDestination(_currentPoint.transform.position);
-        _currentPoint.OnComplite += MoveNextPoint;
+        _currentPoint.OnComplete += MoveNextPoint;
     }
 
     private void MoveNextPoint() 
     {
-        _currentPoint.OnComplite -= MoveNextPoint;
+        _currentPoint.OnComplete -= MoveNextPoint;
 
         if (_navigator.LastPoint == _currentPoint) 
             return;
 
         _currentPoint = _navigator.GetNextPoint(_currentPoint);
         UpdateAgentDestination(_currentPoint.transform.position);
-        _currentPoint.OnComplite += MoveNextPoint;
+        _currentPoint.OnComplete += MoveNextPoint;
     }
 
     private void UpdateAgentDestination(Vector3 target)
     {
         _agent.SetDestination(target);
-        UpdateMovementState(MovementState.move);
+        UpdateMovementState(MovementState.Move);
     }
 
     private void UpdateMovementState(MovementState state) 
@@ -76,8 +77,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if(other.TryGetComponent(out Point point)) 
         {
-            if (!point.Complite)
-                UpdateMovementState(MovementState.idle);
+            if (!point.Complete)
+                UpdateMovementState(MovementState.Idle);
             else
                 MoveNextPoint();
         }

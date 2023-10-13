@@ -1,14 +1,14 @@
 using UnityEngine;
 using System.Collections;
 
-public class Gun : MonoBehaviour
+public sealed class Gun : MonoBehaviour
 {
 
-    [SerializeField] private float _cooldown = 0.25f;
-    [SerializeField] private bool _canShoot = true;
-    [SerializeField] private Transform _bulletSpawnPosition;
-    [SerializeField] private BulletPool _bulletPool;
-
+    [field: SerializeField] public float Cooldown { get; private set; } = 0.25f;
+    
+    private BulletPool _bulletPool;
+    private bool _canShoot = true;
+    
     public void Constructor(BulletPool bulletPool) 
     {
         _bulletPool = bulletPool;
@@ -27,7 +27,7 @@ public class Gun : MonoBehaviour
 
     private IEnumerator CooldownTick() 
     {
-        yield return new WaitForSeconds(_cooldown);
+        yield return new WaitForSeconds(Cooldown);
         _canShoot = true;
     }
 

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Level : MonoBehaviour
+public sealed class Level : MonoBehaviour
 {
 
     public event UnityAction OnLaunch;
@@ -11,12 +11,12 @@ public class Level : MonoBehaviour
 
     private void OnEnable()
     {
-        _finishPoint.OnComplite += Finish; 
+        _finishPoint.OnComplete += Finish; 
     }
 
     private void OnDisable()
     {
-        _finishPoint.OnComplite -= Finish;
+        _finishPoint.OnComplete -= Finish;
     }
 
     public void Launch() 

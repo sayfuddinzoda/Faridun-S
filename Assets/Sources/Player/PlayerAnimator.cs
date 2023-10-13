@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAnimator : MonoBehaviour
 {
 
-    [SerializeField] private PlayerMovement _playerMovement;
+    private PlayerMovement _playerMovement;
     private Animator _animator;
     private int _animatorHashIsMove;
 
@@ -30,10 +30,10 @@ public class PlayerAnimator : MonoBehaviour
     {
         switch (state)
         {
-            case MovementState.idle:
+            case MovementState.Idle:
                 _animator.SetBool(_animatorHashIsMove, false);
                 break;
-            case MovementState.move:
+            case MovementState.Move:
                 _animator.SetBool(_animatorHashIsMove, true);
                 break;
         }

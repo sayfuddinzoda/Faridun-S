@@ -1,15 +1,16 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Health : MonoBehaviour, ITakeDamage
+public sealed class Health : MonoBehaviour, ITakeDamage
 {
 
     public event UnityAction<float> OnHealthChanged;
     public event UnityAction OnDie;
 
-    [SerializeField] private float _currentHealth;
-    [SerializeField, Min(0)] private float _maxHealth;
-    [SerializeField] private Animator _animator;
+    [field: SerializeField] public float CurrentHealth { get; private set; }
+    [field: SerializeField, Min(0)] public float MaxHealth { get; private set; }
+    
+    private Animator _animator;
 
     private void Awake()
     {
@@ -18,13 +19,13 @@ public class Health : MonoBehaviour, ITakeDamage
 
     public void TakeDamage(float damage)
     {
-        if (damage <= 0 || _currentHealth <= 0)
+        if (damage <= 0 || CurrentHealth <= 0)
             return;
 
-        _currentHealth -= damage;
-        OnHealthChanged?.Invoke(_currentHealth / _maxHealth);
+        CurrentHealth -= damage;
+        OnHealthChanged?.Invoke(CurrentHealth / MaxHealth);
 
-        if (_currentHealth <= 0)
+        if (CurrentHealth <= 0)
             Die();
     }
 

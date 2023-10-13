@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelRestarter : MonoBehaviour
+public sealed class LevelRestarter : MonoBehaviour
 {
 
     [SerializeField] private Level _level;

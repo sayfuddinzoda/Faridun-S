@@ -1,16 +1,16 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Point : MonoBehaviour
+public sealed class Point : MonoBehaviour
 {
 
-    public event UnityAction OnComplite;
+    public event UnityAction OnComplete;
 
     [SerializeField] private Spawner[] _spawners;
     [SerializeField] private int _activeSpawnersCount;
     [SerializeField] private float _sphereRadius = 1;
-    [SerializeField] private bool _complite;
-    public bool Complite => _complite;
+    [SerializeField] private bool _complete;
+    public bool Complete => _complete;
 
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class Point : MonoBehaviour
         if (SpawnersIsNotEmpty())
             Spawn();
         else
-            _complite = true;
+            _complete = true;
     }
 
     private void Spawn() 
@@ -53,17 +53,14 @@ public class Point : MonoBehaviour
 
         if (_activeSpawnersCount <= 0)
         {
-            OnComplite?.Invoke();
-            _complite = true;
+            OnComplete?.Invoke();
+            _complete = true;
         }
     }
 
     private bool SpawnersIsNotEmpty()
     {
-        if (_spawners.Length == 0)
-            return false;
-        else
-            return true;
+        return _spawners.Length != 0;
     } 
 
 }

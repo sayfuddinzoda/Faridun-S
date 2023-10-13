@@ -7,6 +7,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private Bullet _bullet;
     [SerializeField] private Gun _gun;
     [SerializeField] private LayerMask _ignoreLayerMask;
+    
     private Camera _camera;
 
     private void Awake()
@@ -18,7 +19,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (_player.MovementState == MovementState.move)
+            if (_player.MovementState == MovementState.Move)
                 return;
 
             RaycastHit hit;

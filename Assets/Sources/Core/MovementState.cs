@@ -1,5 +1,5 @@
 public enum MovementState
 {
-    idle,
-    move
+    Idle,
+    Move
 }

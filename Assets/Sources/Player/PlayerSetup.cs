@@ -1,13 +1,13 @@
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerMovement))]
-public class PlayerSetup : MonoBehaviour
+public sealed class PlayerSetup : MonoBehaviour
 {
-
-    [SerializeField] private Gun _gun;
 
     private PlayerMovement _movement;
 
+    [field: SerializeField] public Gun Gun { get; private set; }
+    
     private void Awake()
     {
         _movement = GetComponent<PlayerMovement>();
@@ -15,12 +15,12 @@ public class PlayerSetup : MonoBehaviour
 
     public void MovementSetup(PointsNavigator navigator, Level level) 
     {
-        _movement.Consturctor(navigator, level);
+        _movement.Constructor(navigator, level);
     }
 
     public void GunSetup(BulletPool bulletPool) 
     {
-        _gun.Constructor(bulletPool);
+        Gun.Constructor(bulletPool);
     }
 
 }
